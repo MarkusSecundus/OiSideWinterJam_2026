@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://hbpes4ts7d2p"]
+
+[ext_resource type="Script" uid="uid://dhut3nxhd3a2i" path="res://conection_manager.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://b1pv5lknlf818" path="res://ip_label.gd" id="2_fc0e3"]
+[ext_resource type="Script" uid="uid://xykemv5y45xj" path="res://button.gd" id="3_7jktm"]
+[ext_resource type="Script" uid="uid://bsqtncrtq8fhy" path="res://join_button.gd" id="4_ryrav"]
+
+[node name="game" type="Node" unique_id=80907388]
+
+[node name="connectionManager" type="Node" parent="." unique_id=2018483296]
+unique_name_in_owner = true
+script = ExtResource("1_80nbo")
+
+[node name="menu" type="Control" parent="." unique_id=2094989794]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu" unique_id=837510627]
+layout_mode = 0
+offset_right = 398.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="menu/VBoxContainer" unique_id=146922787]
+layout_mode = 2
+text = "your Ip:"
+
+[node name="IpLabel" type="Label" parent="menu/VBoxContainer" unique_id=1721995324]
+layout_mode = 2
+script = ExtResource("2_fc0e3")
+
+[node name="HostButton" type="Button" parent="menu/VBoxContainer" unique_id=455464724]
+layout_mode = 2
+text = "Host
+"
+script = ExtResource("3_7jktm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="menu/VBoxContainer" unique_id=335345455]
+layout_mode = 2
+
+[node name="JoinButton" type="Button" parent="menu/VBoxContainer/HBoxContainer" unique_id=509313689]
+layout_mode = 2
+text = "Join "
+script = ExtResource("4_ryrav")
+
+[node name="LineEdit" type="LineEdit" parent="menu/VBoxContainer/HBoxContainer" unique_id=1334244876]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "serverIpHere"
