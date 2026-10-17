@@ -25,7 +25,7 @@ func host():
 	
 
 func join(server_ip):
-	print("connecting to "+server_ip+" at "+port)
+	print("connecting to "+server_ip+" at "+str(port))
 	peer.create_client(server_ip, port)
 	multiplayer.multiplayer_peer = peer	
 	
