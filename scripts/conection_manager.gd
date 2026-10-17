@@ -9,6 +9,9 @@ func _ready() -> void:
 	multiplayer.peer_connected.connect(
 		func(pid) -> void:
 			print(str(pid) + " connected")
+			var root = get_tree().root
+			var child: PackedScene = load("res://scenes/questioning.tscn")
+			root.add_child(child.instantiate())
 	)
 	multiplayer.connection_failed.connect(
 		func():

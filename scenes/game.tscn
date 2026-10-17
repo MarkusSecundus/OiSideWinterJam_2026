@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://hbpes4ts7d2p"]
 
-[ext_resource type="Script" uid="uid://dhut3nxhd3a2i" path="res://conection_manager.gd" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://b1pv5lknlf818" path="res://ip_label.gd" id="2_fc0e3"]
-[ext_resource type="Script" uid="uid://xykemv5y45xj" path="res://button.gd" id="3_7jktm"]
-[ext_resource type="Script" uid="uid://bsqtncrtq8fhy" path="res://join_button.gd" id="4_ryrav"]
+[ext_resource type="Script" uid="uid://dhut3nxhd3a2i" path="res://scripts/conection_manager.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://b1pv5lknlf818" path="res://scripts/ip_label.gd" id="2_iywne"]
+[ext_resource type="Script" uid="uid://xykemv5y45xj" path="res://scripts/button.gd" id="3_p57ef"]
+[ext_resource type="Script" uid="uid://bsqtncrtq8fhy" path="res://scripts/join_button.gd" id="4_u5sy4"]
 
-[node name="game" type="Node" unique_id=80907388]
+[node name="MainGameScene" type="Node" unique_id=80907388]
 
 [node name="connectionManager" type="Node" parent="." unique_id=2018483296]
 unique_name_in_owner = true
-script = ExtResource("1_80nbo")
+script = ExtResource("1_lbhrr")
 
 [node name="menu" type="Control" parent="." unique_id=2094989794]
 layout_mode = 3
@@ -30,13 +30,13 @@ text = "your Ip:"
 
 [node name="IpLabel" type="Label" parent="menu/VBoxContainer" unique_id=1721995324]
 layout_mode = 2
-script = ExtResource("2_fc0e3")
+script = ExtResource("2_iywne")
 
 [node name="HostButton" type="Button" parent="menu/VBoxContainer" unique_id=455464724]
 layout_mode = 2
 text = "Host
 "
-script = ExtResource("3_7jktm")
+script = ExtResource("3_p57ef")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="menu/VBoxContainer" unique_id=335345455]
 layout_mode = 2
@@ -44,7 +44,7 @@ layout_mode = 2
 [node name="JoinButton" type="Button" parent="menu/VBoxContainer/HBoxContainer" unique_id=509313689]
 layout_mode = 2
 text = "Join "
-script = ExtResource("4_ryrav")
+script = ExtResource("4_u5sy4")
 
 [node name="LineEdit" type="LineEdit" parent="menu/VBoxContainer/HBoxContainer" unique_id=1334244876]
 layout_mode = 2
