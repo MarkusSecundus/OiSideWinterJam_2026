@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://blt81tg7f3baf"]
+
+[ext_resource type="Script" uid="uid://bjjwnvcm03eos" path="res://scripts/sound/SoundManager.gd" id="1_p1llj"]
+[ext_resource type="Script" uid="uid://b0ata5kuqqdho" path="res://scripts/sound/SoundtrackPart.gd" id="1_rupev"]
+
+[node name="SoundManager" type="Node" unique_id=46703945]
+script = ExtResource("1_p1llj")
+
+[node name="SoundtrackLayers" type="Node" parent="." unique_id=1058309907]
+
+[node name="Layer0" type="AudioStreamPlayer" parent="SoundtrackLayers" unique_id=619525379]
+volume_db = -3.851
+script = ExtResource("1_rupev")
+decibels = Array[float]([0.0])
+
+[node name="Layer1" type="AudioStreamPlayer" parent="SoundtrackLayers" unique_id=1154367310]
+script = ExtResource("1_rupev")
+
+[node name="Layer2" type="AudioStreamPlayer" parent="SoundtrackLayers" unique_id=1489805958]
+script = ExtResource("1_rupev")
+
+[node name="SoundPool" type="Node" parent="." unique_id=508956066]

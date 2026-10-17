@@ -13,6 +13,11 @@ config_version=5
 config/name="OiSideWinterJam_2026"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+SoundManager="*uid://blt81tg7f3baf"
+TimeUtils="*uid://bswj41aima2u0"
+
 [display]
 
 window/stretch/mode="canvas_items"

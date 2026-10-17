@@ -1,0 +1,108 @@
+extends Object
+class_name DatastructUtils
+
+const HASHSET_PLACEHOLDER_VALUE:bool = true;
+
+static func add_to_list(list, value)->Array:
+	if !list: 
+		return [value]
+	list.append(value)
+	return list;
+
+
+static func _default_compare_lt(a,b): return a<b;
+
+static func find_min(list, selector: Callable, compare_lt: Callable = Callable()):
+	if !compare_lt: compare_lt = func(a,b): return a<b;
+	var is_first_iteration := true;
+	var minimum = null;
+	var min_comparable = null;
+	
+	for val in list:
+		var comparable = selector.call(val);
+		if is_first_iteration || compare_lt.call(comparable, min_comparable):
+			minimum = val;
+			min_comparable = comparable;
+		is_first_iteration = false
+	
+	return minimum;
+
+class Wrapper:
+	extends RefCounted
+	var value;
+	
+	@warning_ignore("shadowed_variable")
+	func _init(value)->void:
+		self.value = value
+
+
+static func remove_interval(list, begin_idx_inclusive:int, end_idx_exclusive: int):
+	for i in Vector3i(end_idx_exclusive-1, begin_idx_inclusive-1, -1):
+		list.remove_at(i)
+	return list
+
+static func modify_in_place(list, modificator : Callable):
+	var i : int = 0
+	while i < list.size():
+		list[i] = modificator.call(list[i])
+		i += 1
+	return list
+
+
+static func string_concat(list, separator = ", ")->String:
+	var ret := ""
+	var is_first_iteration := true
+	for e in list:
+		if ! is_first_iteration:
+			ret += separator
+		is_first_iteration = false
+		ret += str(e)
+	return ret
+
+static func insert_array(target:Array, idx: int, to_insert : Array)->Array:
+	for elem in to_insert:
+		target.insert(idx, elem)
+		idx += 1
+	return target
+
+static func fill_array_with(arr: Array, value: Variant, count: int)->Array:
+	arr.resize(count)
+	var t := 0
+	while t < count:
+		arr[t] = value
+		t += 1
+	return arr
+
+static func all(arr, predicate: Callable)->bool:
+	for e in arr:
+		if not predicate.call(e): return false
+	return true
+
+static func remove_if(arr, predicate: Callable)->int:
+	var removed_count :int = 0
+	for i in Vector3i(arr.size()-1, -1, -1):
+		if not predicate.call(arr[i]):
+			arr.remove_at(i)
+			removed_count += 1
+	
+	return removed_count
+
+static func remove_all_falsy(arr)->int:
+	var removed_count :int = 0
+	for i in Vector3i(arr.size()-1, -1, -1):
+		if not arr[i]:
+			arr.remove_at(i)
+			removed_count += 1
+	
+	return removed_count
+
+
+static func ensure_these_and_only_these_dict_keys_are_present(dict: Variant, keys: Variant, default_value : Variant = null)->void:
+	var not_present : Array = []
+	for key in dict:
+		if not key in keys: not_present.append(key)
+	for key in not_present: dict.erase(key)
+	
+	for key in keys:
+		if not key in dict: dict[key] = default_value
+	
