@@ -5,6 +5,77 @@
 [ext_resource type="Texture2D" uid="uid://tt7ej0vcfutc" path="res://textures/witness2_temp.png" id="3_7urk2"]
 [ext_resource type="Script" uid="uid://i3eq3oyqndh7" path="res://scenes/witness_2.gd" id="4_bofo3"]
 [ext_resource type="Script" uid="uid://dv6n8tugj35mo" path="res://scripts/buttons.gd" id="5_4nfg0"]
+[ext_resource type="Script" uid="uid://die4mgsio518q" path="res://scenes/clues.gd" id="5_56l12"]
+[ext_resource type="Script" uid="uid://c5ploq5lwifkg" path="res://scenes/game_button.gd" id="6_63jda"]
+[ext_resource type="Script" uid="uid://bqm3enp1nl76k" path="res://scripts/their_clues_list.gd" id="6_dkt2t"]
+[ext_resource type="Script" uid="uid://syodif456bop" path="res://scenes/my_clues_list.gd" id="6_sbg3v"]
+[ext_resource type="Texture2D" uid="uid://1jggcg3ryfnx" path="res://textures/tiles/sus1.png" id="7_5fbla"]
+[ext_resource type="Script" uid="uid://ca3yrbnwq7sx2" path="res://scenes/bullshit_button.gd" id="7_kac10"]
+[ext_resource type="Texture2D" uid="uid://c5o13fsaa0jy4" path="res://textures/tiles/sus2.png" id="8_56l12"]
+[ext_resource type="Script" uid="uid://cettiya2hyuvs" path="res://scripts/question_button.gd" id="9_20oik"]
+[ext_resource type="Texture2D" uid="uid://675rmauthepk" path="res://textures/tiles/sus3.png" id="9_lronu"]
+[ext_resource type="Texture2D" uid="uid://ca6o3fhu54on" path="res://textures/tiles/sus4.png" id="10_20oik"]
+[ext_resource type="Texture2D" uid="uid://cwp2fqc1wftf1" path="res://textures/tiles/weapon1.png" id="11_ytrvr"]
+[ext_resource type="Texture2D" uid="uid://2hpgyomcdyex" path="res://textures/tiles/weapon2.png" id="12_vubd6"]
+[ext_resource type="Texture2D" uid="uid://lnpb434h420j" path="res://textures/tiles/weapon3.png" id="13_sbg3v"]
+[ext_resource type="Texture2D" uid="uid://ce0y2w6ms1x28" path="res://textures/tiles/weapon4.png" id="14_dkt2t"]
+[ext_resource type="Texture2D" uid="uid://v5eitq4chw2l" path="res://textures/tiles/loc1.png" id="15_kac10"]
+[ext_resource type="Texture2D" uid="uid://4ac7m3rfwoan" path="res://textures/tiles/loc2.png" id="16_p2yxv"]
+[ext_resource type="Texture2D" uid="uid://dbtkprhb67vq" path="res://textures/tiles/loc3.png" id="17_twe5i"]
+[ext_resource type="Texture2D" uid="uid://d21pmu3nkmaqk" path="res://textures/tiles/loc4.png" id="18_2yvh8"]
+[ext_resource type="Script" uid="uid://haw02cxew3y5" path="res://scripts/solve_buttons.gd" id="21_20oik"]
+[ext_resource type="Script" uid="uid://dipjmttt235oq" path="res://scripts/solve_button.gd" id="22_ytrvr"]
+[ext_resource type="Script" uid="uid://hl11r5paf6yg" path="res://scenes/confirm_sollution_button.gd" id="23_ytrvr"]
+[ext_resource type="Script" uid="uid://c3w84f745tm2i" path="res://scenes/lives_num.gd" id="24_vubd6"]
+[ext_resource type="Script" uid="uid://20j7b4x2724u" path="res://scenes/trade_button.gd" id="27_twe5i"]
+[ext_resource type="Script" uid="uid://c7e1hsnx727cy" path="res://scripts/trade_label.gd" id="28_2yvh8"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_56l12"]
+properties/0/path = NodePath(".:sollution_murderer")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:sollution_weapon")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:sollution_location")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:p1_lives")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:p2_lives")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:p1_clues")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath(".:p2_clues")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath(".:p1_clues_flag")
+properties/7/spawn = true
+properties/7/replication_mode = 1
+properties/8/path = NodePath(".:p2_clues_flag")
+properties/8/spawn = true
+properties/8/replication_mode = 1
+properties/9/path = NodePath(".:p1_clues_traded")
+properties/9/spawn = true
+properties/9/replication_mode = 1
+properties/10/path = NodePath(".:p2_clues_traded")
+properties/10/spawn = true
+properties/10/replication_mode = 1
+properties/11/path = NodePath(".:p2_clues_traded_flag")
+properties/11/spawn = true
+properties/11/replication_mode = 1
+properties/12/path = NodePath(".:p1_clues_traded_flag")
+properties/12/spawn = true
+properties/12/replication_mode = 1
+properties/13/path = NodePath(".:p1_clue_to_trade")
+properties/13/spawn = true
+properties/13/replication_mode = 1
+properties/14/path = NodePath(".:p2_clue_to_trade")
+properties/14/spawn = true
+properties/14/replication_mode = 1
 
 [node name="Questioning" type="Node2D" unique_id=221828119]
 
@@ -27,31 +98,50 @@ offset_right = 1154.0
 offset_bottom = 646.0
 
 [node name="Clues" type="Control" parent="UIElements" unique_id=823502957]
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 10.0
+offset_top = 54.0
+offset_right = 50.0
+offset_bottom = 94.0
+script = ExtResource("5_56l12")
 
 [node name="TheirClues" type="ColorRect" parent="UIElements/Clues" unique_id=1164974775]
 layout_mode = 0
-offset_right = 285.0
-offset_bottom = 465.0
+offset_left = 298.0
+offset_right = 583.0
+offset_bottom = 405.0
 color = Color(0.2784314, 0.2784314, 0.2784314, 0.87058824)
 
 [node name="TheirCluesList" type="ItemList" parent="UIElements/Clues/TheirClues" unique_id=1946727902]
 layout_mode = 0
-offset_right = 284.0
-offset_bottom = 463.0
+offset_right = 285.0
+offset_bottom = 345.0
+script = ExtResource("6_dkt2t")
+
+[node name="BullshitButton" type="Button" parent="UIElements/Clues/TheirClues" unique_id=16614897]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 351.0
+offset_right = 281.0
+offset_bottom = 398.0
+text = "Call Bullshit"
+script = ExtResource("7_kac10")
 
 [node name="MyClues" type="ColorRect" parent="UIElements/Clues" unique_id=1277577220]
 layout_mode = 0
-offset_right = 285.0
-offset_bottom = 465.0
+offset_right = 284.0
+offset_bottom = 405.0
 color = Color(0.2784314, 0.2784314, 0.2784314, 0.87058824)
 
 [node name="MyCluesList" type="ItemList" parent="UIElements/Clues/MyClues" unique_id=1558723405]
 layout_mode = 0
-offset_right = 284.0
-offset_bottom = 463.0
+offset_right = 283.0
+offset_bottom = 402.0
+script = ExtResource("6_sbg3v")
+
+[node name="CluesSynchronizer" type="MultiplayerSynchronizer" parent="UIElements/Clues" unique_id=1340613267]
+replication_config = SubResource("SceneReplicationConfig_56l12")
 
 [node name="Buttons" type="Control" parent="UIElements" unique_id=617286753]
 layout_mode = 1
@@ -64,39 +154,749 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_4nfg0")
 
-[node name="TradeButton" type="Button" parent="UIElements/Buttons" unique_id=577234549]
+[node name="SolveButton" type="Button" parent="UIElements/Buttons" unique_id=2041014957 node_paths=PackedStringArray("UIElement")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -350.0
-offset_top = -144.0
+offset_left = -238.0
+offset_top = -93.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Trade Information"
+toggle_mode = true
+text = "Solve The Case"
+script = ExtResource("6_63jda")
+UIElement = NodePath("../../Solve")
 
-[node name="CluesButton" type="Button" parent="UIElements/Buttons" unique_id=101280936]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -144.0
-offset_right = 350.0
-grow_vertical = 0
-text = "Acquired Clues"
-
-[node name="QuestionButton" type="Button" parent="UIElements/Buttons" unique_id=1299556090]
+[node name="TradeButton" type="Button" parent="UIElements/Buttons" unique_id=577234549 node_paths=PackedStringArray("UIElement")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -175.0
-offset_top = -144.0
-offset_right = 175.0
+offset_left = 46.0
+offset_top = -90.0
+offset_right = 284.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Question Witness"
+toggle_mode = true
+text = "Trade Information"
+script = ExtResource("6_63jda")
+UIElement = NodePath("../../Trade")
+
+[node name="CluesButton" type="Button" parent="UIElements/Buttons" unique_id=101280936 node_paths=PackedStringArray("UIElement")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -91.0
+offset_right = 244.0
+grow_vertical = 0
+toggle_mode = true
+text = "Acquired Clues"
+script = ExtResource("6_63jda")
+UIElement = NodePath("../../Clues")
+
+[node name="QuestionButton" type="Button" parent="UIElements/Buttons" unique_id=1299556090 node_paths=PackedStringArray("UIElement")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -90.0
+offset_right = -43.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+toggle_mode = true
+text = "Question Subordinate"
+script = ExtResource("6_63jda")
+UIElement = NodePath("../../Question")
+
+[node name="DialogueBox" type="Label" parent="UIElements" unique_id=1425050916]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -141.0
+offset_right = 49.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Sample Text."
+
+[node name="Question" type="Control" parent="UIElements" unique_id=921418583]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 479.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UIElements/Question" unique_id=860327428]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 22.0
+offset_right = 128.5
+offset_bottom = 70.0
+grow_horizontal = 2
+text = "I want to learn more about..."
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UIElements/Question" unique_id=1797795240]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 88.0
+offset_right = 353.0
+offset_bottom = 479.0
+grow_horizontal = 2
+color = Color(0.1584723, 0.15847233, 0.1584723, 0.8117647)
+
+[node name="A1" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=1909548818]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -342.5
+offset_top = -9.0
+offset_right = -214.5
+offset_bottom = 119.0
+grow_horizontal = 2
+texture_normal = ExtResource("7_5fbla")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 1
+col = 1
+
+[node name="A2" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=291418069]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.5
+offset_top = -11.0
+offset_right = -24.5
+offset_bottom = 117.0
+grow_horizontal = 2
+texture_normal = ExtResource("8_56l12")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 1
+col = 2
+
+[node name="A3" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=818104654]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 37.5
+offset_top = -20.0
+offset_right = 165.5
+offset_bottom = 108.0
+grow_horizontal = 2
+texture_normal = ExtResource("9_lronu")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 1
+col = 3
+
+[node name="A4" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=1438223259]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 199.5
+offset_top = -16.0
+offset_right = 327.5
+offset_bottom = 112.0
+grow_horizontal = 2
+texture_normal = ExtResource("10_20oik")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 1
+col = 4
+
+[node name="B1" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=1843818359]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -340.5
+offset_top = 131.0
+offset_right = -212.5
+offset_bottom = 259.0
+grow_horizontal = 2
+texture_normal = ExtResource("11_ytrvr")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 2
+col = 1
+
+[node name="B2" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=434821279]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.5
+offset_top = 130.0
+offset_right = -22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+texture_normal = ExtResource("12_vubd6")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 2
+col = 2
+
+[node name="B3" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=689992343]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 30.5
+offset_top = 128.0
+offset_right = 158.5
+offset_bottom = 256.0
+grow_horizontal = 2
+texture_normal = ExtResource("13_sbg3v")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 2
+col = 3
+
+[node name="B4" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=1770412668]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 205.5
+offset_top = 131.0
+offset_right = 333.5
+offset_bottom = 259.0
+grow_horizontal = 2
+texture_normal = ExtResource("14_dkt2t")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 2
+col = 4
+
+[node name="C1" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=1869281016]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -342.5
+offset_top = 280.0
+offset_right = -214.5
+offset_bottom = 408.0
+grow_horizontal = 2
+texture_normal = ExtResource("15_kac10")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 3
+col = 1
+
+[node name="C2" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=1963340862]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.5
+offset_top = 275.0
+offset_right = -28.5
+offset_bottom = 403.0
+grow_horizontal = 2
+texture_normal = ExtResource("16_p2yxv")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 3
+col = 2
+
+[node name="C3" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=381063004]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 38.5
+offset_top = 278.0
+offset_right = 166.5
+offset_bottom = 406.0
+grow_horizontal = 2
+texture_normal = ExtResource("17_twe5i")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 3
+col = 3
+
+[node name="C4" type="TextureButton" parent="UIElements/Question/ColorRect" unique_id=1821244001]
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 200.5
+offset_top = 273.0
+offset_right = 328.5
+offset_bottom = 401.0
+grow_horizontal = 2
+texture_normal = ExtResource("18_2yvh8")
+stretch_mode = 0
+script = ExtResource("9_20oik")
+row = 3
+col = 4
+
+[node name="Solve" type="Control" parent="UIElements" unique_id=1491790729]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 479.0
+grow_horizontal = 2
+script = ExtResource("21_20oik")
+
+[node name="Label" type="Label" parent="UIElements/Solve" unique_id=1462792782]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -263.0
+offset_top = 16.0
+offset_right = 263.0
+offset_bottom = 65.0
+grow_horizontal = 2
+text = "Did you solve the case?
+Select the murderer, their weapon, and the location of the murder..."
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UIElements/Solve" unique_id=351457582]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -477.0
+offset_top = 88.0
+offset_right = 236.0
+offset_bottom = 479.0
+grow_horizontal = 2
+color = Color(0.1584723, 0.15847233, 0.1584723, 0.8117647)
+
+[node name="A1" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=1129266675]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -342.5
+offset_top = -9.0
+offset_right = -214.5
+offset_bottom = 119.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("7_5fbla")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 1
+col = 1
+
+[node name="A2" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=1737884810]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.5
+offset_top = -11.0
+offset_right = -24.5
+offset_bottom = 117.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("8_56l12")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 1
+col = 2
+
+[node name="A3" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=567153662]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 37.5
+offset_top = -20.0
+offset_right = 165.5
+offset_bottom = 108.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("9_lronu")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 1
+col = 3
+
+[node name="A4" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=1669317944]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 199.5
+offset_top = -16.0
+offset_right = 327.5
+offset_bottom = 112.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("10_20oik")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 1
+col = 4
+
+[node name="B1" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=121110499]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -340.5
+offset_top = 131.0
+offset_right = -212.5
+offset_bottom = 259.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("11_ytrvr")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 2
+col = 1
+
+[node name="B2" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=1902022873]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.5
+offset_top = 130.0
+offset_right = -22.5
+offset_bottom = 258.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("12_vubd6")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 2
+col = 2
+
+[node name="B3" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=682280779]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 30.5
+offset_top = 128.0
+offset_right = 158.5
+offset_bottom = 256.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("13_sbg3v")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 2
+col = 3
+
+[node name="B4" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=121387899]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 205.5
+offset_top = 131.0
+offset_right = 333.5
+offset_bottom = 259.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("14_dkt2t")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 2
+col = 4
+
+[node name="C1" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=1589838498]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -342.5
+offset_top = 280.0
+offset_right = -214.5
+offset_bottom = 408.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("15_kac10")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 3
+col = 1
+
+[node name="C2" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=1908649243]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.5
+offset_top = 275.0
+offset_right = -28.5
+offset_bottom = 403.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("16_p2yxv")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 3
+col = 2
+
+[node name="C3" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=802895560]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 38.5
+offset_top = 278.0
+offset_right = 166.5
+offset_bottom = 406.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("17_twe5i")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 3
+col = 3
+
+[node name="C4" type="TextureButton" parent="UIElements/Solve/ColorRect" unique_id=923238818]
+modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 200.5
+offset_top = 273.0
+offset_right = 328.5
+offset_bottom = 401.0
+grow_horizontal = 2
+toggle_mode = true
+texture_normal = ExtResource("18_2yvh8")
+stretch_mode = 0
+script = ExtResource("22_ytrvr")
+row = 3
+col = 4
+
+[node name="ConfirmSollutionButton" type="Button" parent="UIElements/Solve" unique_id=2038959743]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 219.0
+offset_right = 1050.0
+offset_bottom = 334.0
+disabled = true
+text = "Present the theory,
+End the Game!"
+script = ExtResource("23_ytrvr")
+
+[node name="Trade" type="Control" parent="UIElements" unique_id=1684694589]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -355.0
+offset_right = 351.0
+offset_bottom = 478.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="UIElements/Trade" unique_id=471788696]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -356.0
+offset_top = 91.0
+offset_right = 347.0
+offset_bottom = 476.0
+grow_horizontal = 2
+color = Color(0.47058824, 0.23137255, 0.28627452, 0.7607843)
+
+[node name="PartA" type="OptionButton" parent="UIElements/Trade/ColorRect" unique_id=948166162]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.5
+offset_top = 104.0
+offset_right = -73.5
+offset_bottom = 135.0
+grow_horizontal = 2
+item_count = 12
+popup/item_0/text = "Mr. Cat"
+popup/item_0/id = 0
+popup/item_1/text = "Ms. Bird"
+popup/item_1/id = 1
+popup/item_2/text = "Mr. Dog"
+popup/item_2/id = 2
+popup/item_3/text = "The Penguin"
+popup/item_3/id = 3
+popup/item_4/text = "The Knife"
+popup/item_4/id = 4
+popup/item_5/text = "The Hammer"
+popup/item_5/id = 5
+popup/item_6/text = "The Pistol"
+popup/item_6/id = 6
+popup/item_7/text = "The Poison"
+popup/item_7/id = 7
+popup/item_8/text = "The Kitchen"
+popup/item_8/id = 8
+popup/item_9/text = "The Bathroom"
+popup/item_9/id = 9
+popup/item_10/text = "The Bedroom"
+popup/item_10/id = 10
+popup/item_11/text = "The Attic"
+popup/item_11/id = 11
+
+[node name="Operator" type="OptionButton" parent="UIElements/Trade/ColorRect" unique_id=1860215697]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 165.0
+offset_right = 291.0
+offset_bottom = 196.0
+item_count = 5
+popup/item_0/text = "IS TRUE"
+popup/item_0/id = 0
+popup/item_1/text = "IS FALSE"
+popup/item_1/id = 1
+popup/item_2/text = "OR"
+popup/item_2/id = 2
+popup/item_3/text = "THEN"
+popup/item_3/id = 3
+popup/item_4/text = "THEN & ONLY THEN"
+popup/item_4/id = 4
+
+[node name="PartB" type="OptionButton" parent="UIElements/Trade/ColorRect" unique_id=1066281307]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.5
+offset_top = 223.0
+offset_right = -72.5
+offset_bottom = 254.0
+grow_horizontal = 2
+item_count = 12
+popup/item_0/text = "Mr. Cat"
+popup/item_0/id = 0
+popup/item_1/text = "Ms. Bird"
+popup/item_1/id = 1
+popup/item_2/text = "Mr. Dog"
+popup/item_2/id = 2
+popup/item_3/text = "The Penguin"
+popup/item_3/id = 3
+popup/item_4/text = "The Knife"
+popup/item_4/id = 4
+popup/item_5/text = "The Hammer"
+popup/item_5/id = 5
+popup/item_6/text = "The Pistol"
+popup/item_6/id = 6
+popup/item_7/text = "The Poison"
+popup/item_7/id = 7
+popup/item_8/text = "The Kitchen"
+popup/item_8/id = 8
+popup/item_9/text = "The Bathroom"
+popup/item_9/id = 9
+popup/item_10/text = "The Bedroom"
+popup/item_10/id = 10
+popup/item_11/text = "The Attic"
+popup/item_11/id = 11
+
+[node name="TradeButton" type="Button" parent="UIElements/Trade/ColorRect" unique_id=820026812]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 74.5
+offset_top = 247.0
+offset_right = 273.5
+offset_bottom = 335.0
+grow_horizontal = 2
+text = "Lock in your information"
+script = ExtResource("27_twe5i")
+
+[node name="TradeLabel" type="Label" parent="UIElements/Trade/ColorRect" unique_id=370058508]
+custom_minimum_size = Vector2(128, 0)
+custom_maximum_size = Vector2(256, -1)
+layout_mode = 0
+offset_left = 393.0
+offset_top = 93.0
+offset_right = 649.0
+offset_bottom = 215.0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("28_2yvh8")
+
+[node name="Label" type="Label" parent="UIElements" unique_id=1599641708]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = 150.0
+offset_bottom = 78.0
+text = "Lives:"
+
+[node name="LivesNum" type="Label" parent="UIElements/Label" unique_id=594053108]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 1.0
+offset_right = 95.0
+offset_bottom = 24.0
+text = "3"
+script = ExtResource("24_vubd6")
