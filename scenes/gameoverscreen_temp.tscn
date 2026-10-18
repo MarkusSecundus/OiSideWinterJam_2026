@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cuxgg8jl1iuf" path="res://scenes/gameoverscreen_temp.gd" id="1_e1n4l"]
 [ext_resource type="FontFile" uid="uid://cd3e4ipgyqbjq" path="res://fonts/veteran typewriter.ttf" id="1_rtv31"]
 [ext_resource type="Texture2D" uid="uid://c3huyjsxb6v8n" path="res://textures/tiles/teardrop.png" id="2_g07b3"]
-[ext_resource type="Texture2D" uid="uid://d2safsfbvi6x8" path="res://textures/detective2.png" id="3_tfiyw"]
+[ext_resource type="Texture2D" uid="uid://cxb2g5kcd1qce" path="res://textures/detective2.png" id="3_tfiyw"]
 
 [sub_resource type="Gradient" id="Gradient_tfiyw"]
 offsets = PackedFloat32Array(0, 0.1375839)
@@ -97,12 +97,33 @@ text = "You lose :("
 horizontal_alignment = 1
 
 [node name="reason" type="Label" parent="CanvasLayer" unique_id=1848559512]
+z_index = 2
+z_as_relative = false
 anchors_preset = -1
 anchor_top = 0.82
 anchor_right = 1.0
 anchor_bottom = 0.855
+offset_left = 2.0
+offset_top = 11.640015
 offset_right = 1.0
-offset_bottom = 23.0
+offset_bottom = 47.95996
 size_flags_horizontal = 4
 size_flags_vertical = 0
+text = "lorem ipsum"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/reason" unique_id=1085886314]
+z_index = -1
+custom_maximum_size = Vector2(512, -1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 321.0
+offset_top = -14.0
+offset_right = -320.0
+offset_bottom = 47.319946
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.039215688, 0.039215688, 0.039215688, 0.7372549)
