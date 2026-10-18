@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 			disabled = true
 			text = "Already locked in,\nawaiting response..."
 			
+			
 func _pressed() -> void:
 	var a = PartA.selected
 	var op = Operator.selected
@@ -41,5 +42,12 @@ func _pressed() -> void:
 	var r2 = (b / 4) + 1
 	var c2 = (b % 4) + 1
 	
-	clues.add_clue_to_trade.rpc_id(0, r1, c1, r2, c2, op, 0 if multiplayer.is_server() else 1)
+	disabled = true
 	
+	clues.add_clue_to_trade.rpc_id(0, r1, c1, r2, c2, op, 0 if multiplayer.is_server() else 1)
+
+@rpc("any_peer", "call_local", "reliable", 0) 
+func clear():
+	Operator.clear()
+	PartA.clear()
+	PartB.clear()

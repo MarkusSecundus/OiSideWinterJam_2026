@@ -108,14 +108,15 @@ script = ExtResource("5_56l12")
 
 [node name="TheirClues" type="ColorRect" parent="UIElements/Clues" unique_id=1164974775]
 layout_mode = 0
-offset_left = 298.0
-offset_right = 583.0
-offset_bottom = 405.0
+offset_left = 484.0
+offset_top = 1.0
+offset_right = 1028.0
+offset_bottom = 402.0
 color = Color(0.2784314, 0.2784314, 0.2784314, 0.87058824)
 
 [node name="TheirCluesList" type="ItemList" parent="UIElements/Clues/TheirClues" unique_id=1946727902]
 layout_mode = 0
-offset_right = 285.0
+offset_right = 544.0
 offset_bottom = 345.0
 script = ExtResource("6_dkt2t")
 
@@ -123,20 +124,20 @@ script = ExtResource("6_dkt2t")
 layout_mode = 0
 offset_left = 9.0
 offset_top = 351.0
-offset_right = 281.0
+offset_right = 540.0
 offset_bottom = 398.0
 text = "Call Bullshit"
 script = ExtResource("7_kac10")
 
 [node name="MyClues" type="ColorRect" parent="UIElements/Clues" unique_id=1277577220]
 layout_mode = 0
-offset_right = 284.0
+offset_right = 438.0
 offset_bottom = 405.0
 color = Color(0.2784314, 0.2784314, 0.2784314, 0.87058824)
 
 [node name="MyCluesList" type="ItemList" parent="UIElements/Clues/MyClues" unique_id=1558723405]
 layout_mode = 0
-offset_right = 283.0
+offset_right = 438.0
 offset_bottom = 402.0
 script = ExtResource("6_sbg3v")
 
@@ -859,6 +860,7 @@ popup/item_11/text = "The Attic"
 popup/item_11/id = 11
 
 [node name="TradeButton" type="Button" parent="UIElements/Trade/ColorRect" unique_id=820026812]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -868,6 +870,7 @@ offset_top = 247.0
 offset_right = 273.5
 offset_bottom = 335.0
 grow_horizontal = 2
+action_mode = 0
 text = "Lock in your information"
 script = ExtResource("27_twe5i")
 

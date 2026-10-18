@@ -101,6 +101,7 @@ func add_clue_to_trade(r1: int, c1: int, r2: int, c2:int, op:int, playerID: int)
 	
 	if p1_clue_to_trade != null && p2_clue_to_trade != null:
 		trade_clues()
+		%TradeButton.rpc("clear")
 
 # This function should be called with rpc_id(0) so that it gets called only once.
 @rpc("any_peer", "call_local", "reliable", 0)
