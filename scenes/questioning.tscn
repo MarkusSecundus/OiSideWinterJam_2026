@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbursxpwcdot3" path="res://textures/background.png" id="5_2yvh8"]
 [ext_resource type="Script" uid="uid://dv6n8tugj35mo" path="res://scripts/buttons.gd" id="5_4nfg0"]
 [ext_resource type="Script" uid="uid://die4mgsio518q" path="res://scenes/clues.gd" id="5_56l12"]
-[ext_resource type="FontFile" uid="uid://cd3e4ipgyqbjq" path="res://fonts/veteran typewriter.ttf" id="6_5wjhf"]
+[ext_resource type="FontFile" uid="uid://bkxx1ukjneiqi" path="res://fonts/veteran typewriter.ttf" id="6_5wjhf"]
 [ext_resource type="Script" uid="uid://c5ploq5lwifkg" path="res://scenes/game_button.gd" id="6_63jda"]
 [ext_resource type="Script" uid="uid://bqm3enp1nl76k" path="res://scripts/their_clues_list.gd" id="6_dkt2t"]
 [ext_resource type="Script" uid="uid://syodif456bop" path="res://scenes/my_clues_list.gd" id="6_sbg3v"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ca6o3fhu54on" path="res://textures/tiles/sus4.png" id="10_20oik"]
 [ext_resource type="Texture2D" uid="uid://d3psem4a3rmcx" path="res://textures/buttonBG.png" id="11_44ilb"]
 [ext_resource type="Texture2D" uid="uid://cwp2fqc1wftf1" path="res://textures/tiles/weapon1.png" id="11_ytrvr"]
-[ext_resource type="Texture2D" uid="uid://dl1cfnbfqg6kt" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
+[ext_resource type="Texture2D" uid="uid://cpeyaqdyiom3f" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
 [ext_resource type="Texture2D" uid="uid://2hpgyomcdyex" path="res://textures/tiles/weapon2.png" id="12_vubd6"]
 [ext_resource type="Script" uid="uid://d2xjhfmfxv1jw" path="res://scenes/grid_container.gd" id="13_5wjhf"]
 [ext_resource type="Texture2D" uid="uid://lnpb434h420j" path="res://textures/tiles/weapon3.png" id="13_sbg3v"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://dipjmttt235oq" path="res://scripts/solve_button.gd" id="22_ytrvr"]
 [ext_resource type="Script" uid="uid://hl11r5paf6yg" path="res://scenes/confirm_sollution_button.gd" id="23_ytrvr"]
 [ext_resource type="Script" uid="uid://c3w84f745tm2i" path="res://scenes/lives_num.gd" id="24_vubd6"]
+[ext_resource type="Texture2D" uid="uid://dbbtnd8ercd06" path="res://textures/tiles/bg.png" id="25_va1hw"]
 [ext_resource type="Script" uid="uid://20j7b4x2724u" path="res://scenes/trade_button.gd" id="27_twe5i"]
 [ext_resource type="Script" uid="uid://c7e1hsnx727cy" path="res://scripts/trade_label.gd" id="28_2yvh8"]
 
@@ -95,12 +96,14 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_2yvh8")
 
 [node name="Witness1Temp" type="Sprite2D" parent="." unique_id=337931168]
+visible = false
 position = Vector2(518, 281)
 scale = Vector2(0.109684825, 0.11103678)
 texture = ExtResource("2_2yvh8")
 script = ExtResource("2_4nfg0")
 
 [node name="Witness2Temp" type="Sprite2D" parent="." unique_id=1281154574]
+visible = false
 position = Vector2(507, 280)
 scale = Vector2(0.099, 0.099)
 texture = ExtResource("4_44ilb")
@@ -346,7 +349,6 @@ grow_vertical = 0
 text = "Sample Text."
 
 [node name="Question" type="Control" parent="UIElements" unique_id=921418583]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -474,41 +476,176 @@ col = 4
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
 offset_transform_position = Vector2(20, 0)
-texture_normal = ExtResource("15_kac10")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("9_20oik")
 row = 3
 col = 1
 
+[node name="Label" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C1" unique_id=1905741030]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 87.0
+offset_right = 117.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 26
+text = "K"
+
+[node name="Label2" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C1" unique_id=1183294794]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 75.0
+offset_right = 130.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 26
+text = "I"
+
+[node name="Label3" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C1" unique_id=1645303504]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 63.0
+offset_right = 143.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 26
+text = "T"
+
+[node name="Label4" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C1" unique_id=367149688]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 45.0
+offset_right = 158.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 26
+text = "CH"
+
+[node name="Label5" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C1" unique_id=33509132]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 29.0
+offset_right = 187.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 26
+text = "E"
+
+[node name="Label6" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C1" unique_id=629661184]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 17.0
+offset_right = 203.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 26
+text = "N"
+
 [node name="C2" type="TextureButton" parent="UIElements/Question/ColorRect/GridContainer" unique_id=1963340862]
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
 offset_transform_position = Vector2(20, 0)
-texture_normal = ExtResource("16_p2yxv")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("9_20oik")
 row = 3
 col = 2
 
+[node name="Label" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C2" unique_id=1366092435]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 36.0
+offset_right = 121.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 26
+text = "BATH"
+
+[node name="Label2" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C2" unique_id=1040868891]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 70.0
+offset_right = 150.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 26
+text = "ROOM"
+
 [node name="C3" type="TextureButton" parent="UIElements/Question/ColorRect/GridContainer" unique_id=381063004]
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
 offset_transform_position = Vector2(20, 0)
-texture_normal = ExtResource("17_twe5i")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("9_20oik")
 row = 3
 col = 3
 
+[node name="Label" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C3" unique_id=1771663142]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 36.0
+offset_right = 121.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 26
+text = "BED"
+
+[node name="Label2" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C3" unique_id=2098549405]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 70.0
+offset_right = 150.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 26
+text = "ROOM"
+
 [node name="C4" type="TextureButton" parent="UIElements/Question/ColorRect/GridContainer" unique_id=1821244001]
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
 offset_transform_position = Vector2(20, 0)
-texture_normal = ExtResource("18_2yvh8")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("9_20oik")
 row = 3
 col = 4
+
+[node name="Label" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C4" unique_id=311579674]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 83.0
+offset_right = 121.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 26
+text = "A"
+
+[node name="Label2" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C4" unique_id=1512020817]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 67.0
+offset_right = 139.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 26
+text = "T"
+
+[node name="Label3" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C4" unique_id=256724046]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 50.0
+offset_right = 158.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 26
+text = "T"
+
+[node name="Label4" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C4" unique_id=455026209]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 33.0
+offset_right = 179.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 26
+text = "I"
+
+[node name="Label5" type="Label" parent="UIElements/Question/ColorRect/GridContainer/C4" unique_id=908467741]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 16.0
+offset_right = 197.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 26
+text = "C"
 
 [node name="Solve" type="Control" parent="UIElements" unique_id=1491790729]
 visible = false
