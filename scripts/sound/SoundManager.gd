@@ -67,3 +67,7 @@ func SetSoundtrackIntensity(intensity: float)->void:
 		
 func GetSoundtrackLayer(idx: int)->SoundtrackPart:
 	return self._soundtrackLayers[idx]
+
+func PlaySoundtrack()->void:
+	for l :SoundtrackPart in self._soundtrackLayers:
+		l.play();
