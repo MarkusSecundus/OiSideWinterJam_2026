@@ -19,4 +19,5 @@ func _toggled(toggled_on: bool) -> void:
 		modulate = Color("White")
 		buttons.toggle_off(row, col)
 	else:
+		buttons.toggle_off_self(row, col)
 		modulate = Color(0.5, 0.5, 0.5, 0.9)

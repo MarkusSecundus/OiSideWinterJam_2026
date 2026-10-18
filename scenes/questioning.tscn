@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbursxpwcdot3" path="res://textures/background.png" id="5_2yvh8"]
 [ext_resource type="Script" uid="uid://dv6n8tugj35mo" path="res://scripts/buttons.gd" id="5_4nfg0"]
 [ext_resource type="Script" uid="uid://die4mgsio518q" path="res://scenes/clues.gd" id="5_56l12"]
-[ext_resource type="FontFile" uid="uid://bkxx1ukjneiqi" path="res://fonts/veteran typewriter.ttf" id="6_5wjhf"]
+[ext_resource type="FontFile" uid="uid://cd3e4ipgyqbjq" path="res://fonts/veteran typewriter.ttf" id="6_5wjhf"]
 [ext_resource type="Script" uid="uid://c5ploq5lwifkg" path="res://scenes/game_button.gd" id="6_63jda"]
 [ext_resource type="Script" uid="uid://bqm3enp1nl76k" path="res://scripts/their_clues_list.gd" id="6_dkt2t"]
 [ext_resource type="Script" uid="uid://syodif456bop" path="res://scenes/my_clues_list.gd" id="6_sbg3v"]
@@ -19,15 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://ca6o3fhu54on" path="res://textures/tiles/sus4.png" id="10_20oik"]
 [ext_resource type="Texture2D" uid="uid://d3psem4a3rmcx" path="res://textures/buttonBG.png" id="11_44ilb"]
 [ext_resource type="Texture2D" uid="uid://cwp2fqc1wftf1" path="res://textures/tiles/weapon1.png" id="11_ytrvr"]
-[ext_resource type="Texture2D" uid="uid://cpeyaqdyiom3f" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
+[ext_resource type="Texture2D" uid="uid://dl1cfnbfqg6kt" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
 [ext_resource type="Texture2D" uid="uid://2hpgyomcdyex" path="res://textures/tiles/weapon2.png" id="12_vubd6"]
 [ext_resource type="Script" uid="uid://d2xjhfmfxv1jw" path="res://scenes/grid_container.gd" id="13_5wjhf"]
 [ext_resource type="Texture2D" uid="uid://lnpb434h420j" path="res://textures/tiles/weapon3.png" id="13_sbg3v"]
 [ext_resource type="Texture2D" uid="uid://ce0y2w6ms1x28" path="res://textures/tiles/weapon4.png" id="14_dkt2t"]
-[ext_resource type="Texture2D" uid="uid://v5eitq4chw2l" path="res://textures/tiles/loc1.png" id="15_kac10"]
-[ext_resource type="Texture2D" uid="uid://4ac7m3rfwoan" path="res://textures/tiles/loc2.png" id="16_p2yxv"]
-[ext_resource type="Texture2D" uid="uid://dbtkprhb67vq" path="res://textures/tiles/loc3.png" id="17_twe5i"]
-[ext_resource type="Texture2D" uid="uid://d21pmu3nkmaqk" path="res://textures/tiles/loc4.png" id="18_2yvh8"]
 [ext_resource type="Script" uid="uid://haw02cxew3y5" path="res://scripts/solve_buttons.gd" id="21_20oik"]
 [ext_resource type="Script" uid="uid://dipjmttt235oq" path="res://scripts/solve_button.gd" id="22_ytrvr"]
 [ext_resource type="Script" uid="uid://hl11r5paf6yg" path="res://scenes/confirm_sollution_button.gd" id="23_ytrvr"]
@@ -117,6 +113,7 @@ offset_bottom = 646.0
 theme = SubResource("Theme_vvspa")
 
 [node name="Clues" type="Control" parent="UIElements" unique_id=823502957]
+visible = false
 anchors_preset = 0
 offset_left = 10.0
 offset_top = 54.0
@@ -349,6 +346,7 @@ grow_vertical = 0
 text = "Sample Text."
 
 [node name="Question" type="Control" parent="UIElements" unique_id=921418583]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -782,49 +780,188 @@ script = ExtResource("22_ytrvr")
 row = 2
 col = 4
 
-[node name="C1" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=1589838498]
+[node name="C1" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=759577869]
 modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
+offset_transform_position = Vector2(20, 0)
 toggle_mode = true
-texture_normal = ExtResource("15_kac10")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("22_ytrvr")
 row = 3
 col = 1
 
-[node name="C2" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=1908649243]
+[node name="Label" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C1" unique_id=587077835]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 87.0
+offset_right = 117.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 26
+text = "K"
+
+[node name="Label2" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C1" unique_id=735531141]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 75.0
+offset_right = 130.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 26
+text = "I"
+
+[node name="Label3" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C1" unique_id=235859262]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 63.0
+offset_right = 143.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 26
+text = "T"
+
+[node name="Label4" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C1" unique_id=522262523]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 45.0
+offset_right = 158.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 26
+text = "CH"
+
+[node name="Label5" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C1" unique_id=1323665109]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 29.0
+offset_right = 187.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 26
+text = "E"
+
+[node name="Label6" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C1" unique_id=1058518704]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 17.0
+offset_right = 203.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 26
+text = "N"
+
+[node name="C2" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=1295318027]
 modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
+offset_transform_position = Vector2(20, 0)
 toggle_mode = true
-texture_normal = ExtResource("16_p2yxv")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("22_ytrvr")
 row = 3
 col = 2
 
-[node name="C3" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=802895560]
+[node name="Label" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C2" unique_id=172515994]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 36.0
+offset_right = 121.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 26
+text = "BATH"
+
+[node name="Label2" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C2" unique_id=85845865]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 70.0
+offset_right = 150.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 26
+text = "ROOM"
+
+[node name="C3" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=2017879261]
 modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
+offset_transform_position = Vector2(20, 0)
 toggle_mode = true
-texture_normal = ExtResource("17_twe5i")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("22_ytrvr")
 row = 3
 col = 3
 
-[node name="C4" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=923238818]
+[node name="Label" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C3" unique_id=199237030]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 36.0
+offset_right = 121.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 26
+text = "BED"
+
+[node name="Label2" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C3" unique_id=1930684285]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 70.0
+offset_right = 150.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 26
+text = "ROOM"
+
+[node name="C4" type="TextureButton" parent="UIElements/Solve/ColorRect/GridContainer" unique_id=2003919002]
 modulate = Color(0.49803922, 0.49803922, 0.49803922, 0.9019608)
 custom_maximum_size = Vector2(128, 128)
 layout_mode = 2
+offset_transform_position = Vector2(20, 0)
 toggle_mode = true
-texture_normal = ExtResource("18_2yvh8")
+texture_normal = ExtResource("25_va1hw")
 stretch_mode = 0
 script = ExtResource("22_ytrvr")
 row = 3
 col = 4
+
+[node name="Label" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C4" unique_id=730463447]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 83.0
+offset_right = 121.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 26
+text = "A"
+
+[node name="Label2" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C4" unique_id=126804829]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 67.0
+offset_right = 139.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 26
+text = "T"
+
+[node name="Label3" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C4" unique_id=388548990]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 50.0
+offset_right = 158.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 26
+text = "T"
+
+[node name="Label4" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C4" unique_id=1771636347]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 33.0
+offset_right = 179.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 26
+text = "I"
+
+[node name="Label5" type="Label" parent="UIElements/Solve/ColorRect/GridContainer/C4" unique_id=1981409911]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 16.0
+offset_right = 197.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 26
+text = "C"
 
 [node name="ConfirmSollutionButton" type="Button" parent="UIElements/Solve" unique_id=2038959743]
 layout_mode = 0

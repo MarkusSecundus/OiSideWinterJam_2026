@@ -43,6 +43,7 @@ func toggle_off(row: int, col: int) -> void:
 	if row == 1:
 		row_array = [buttonA1, buttonA2, buttonA3, buttonA4]
 		rowA_pressed = col
+		
 	elif row == 2:
 		row_array = [buttonB1, buttonB2, buttonB3, buttonB4]
 		rowB_pressed = col
@@ -53,7 +54,18 @@ func toggle_off(row: int, col: int) -> void:
 	for i in range(4):
 		if col != i + 1:
 			row_array[i].button_pressed = false
+	enable_submit_if_valid()
+			
+func toggle_off_self(row: int,col: int):
+	match row:
+		1: if rowA_pressed == col: rowA_pressed = 0
+		2: if rowB_pressed == col: rowB_pressed = 0
+		3: if rowC_pressed == col: rowC_pressed = 0
 	
+	enable_submit_if_valid()
+	
+			
+func enable_submit_if_valid():
 	if rowA_pressed > 0 && rowB_pressed > 0 && rowC_pressed > 0:
 		confirm_button.disabled = false
 	else:
