@@ -76,7 +76,7 @@ func clue_to_text() -> String:
 	
 	elif clue.operation == 2: # xor
 		text = str(
-			"Either ", partA1, " is ", partB1, ", or",
+			"Either ", partA1, " is ", partB1, ", or ",
 			partA2, " is ", partB2, "."
 		)
 	elif clue.operation == 3: # if
