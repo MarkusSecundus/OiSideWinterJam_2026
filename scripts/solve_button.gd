@@ -3,7 +3,7 @@ extends TextureButton
 @export var row: int
 @export var col: int
 
-@onready var buttons = $"../.."
+@onready var buttons = $"../../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

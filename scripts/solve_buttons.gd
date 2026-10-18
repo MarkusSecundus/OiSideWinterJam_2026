@@ -1,21 +1,21 @@
 extends Control
 
-@onready var buttonA1: TextureButton = $ColorRect/A1
-@onready var buttonA2: TextureButton = $ColorRect/A2
-@onready var buttonA3: TextureButton = $ColorRect/A3
-@onready var buttonA4: TextureButton = $ColorRect/A4
+@onready var buttonA1: TextureButton = $ColorRect/GridContainer/A1
+@onready var buttonA2: TextureButton = $ColorRect/GridContainer/A2
+@onready var buttonA3: TextureButton = $ColorRect/GridContainer/A3
+@onready var buttonA4: TextureButton = $ColorRect/GridContainer/A4
 var rowA_pressed = -1
 
-@onready var buttonB1: TextureButton = $ColorRect/B1
-@onready var buttonB2: TextureButton = $ColorRect/B2
-@onready var buttonB3: TextureButton = $ColorRect/B3
-@onready var buttonB4: TextureButton = $ColorRect/B4
+@onready var buttonB1: TextureButton = $ColorRect/GridContainer/B1
+@onready var buttonB2: TextureButton = $ColorRect/GridContainer/B2
+@onready var buttonB3: TextureButton = $ColorRect/GridContainer/B3
+@onready var buttonB4: TextureButton = $ColorRect/GridContainer/B4
 var rowB_pressed = -1
 
-@onready var buttonC1: TextureButton = $ColorRect/C1
-@onready var buttonC2: TextureButton = $ColorRect/C2
-@onready var buttonC3: TextureButton = $ColorRect/C3
-@onready var buttonC4: TextureButton = $ColorRect/C4
+@onready var buttonC1: TextureButton = $ColorRect/GridContainer/C1
+@onready var buttonC2: TextureButton = $ColorRect/GridContainer/C2
+@onready var buttonC3: TextureButton = $ColorRect/GridContainer/C3
+@onready var buttonC4: TextureButton = $ColorRect/GridContainer/C4
 var rowC_pressed = -1
 
 @onready var confirm_button: Button = $ConfirmSollutionButton
