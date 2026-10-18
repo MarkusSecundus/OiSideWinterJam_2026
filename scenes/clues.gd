@@ -209,18 +209,19 @@ func end_game(winner_playerID: int, loser_msg: String, winner_msg: String):
 	
 	var local_playerID = 0 if multiplayer.is_server() else 1
 	var scene_root_str = ""
+	
+	var ret
 	if winner_playerID == 0:
-		get_tree().change_scene_to_file("res://scenes/P1victory.tscn")
+		await get_tree().change_scene_to_file("res://scenes/P1victory.tscn")
 		scene_root_str = "root/P1Victory/"
 	else:
-		get_tree().change_scene_to_file("res://scenes/P2victory.tscn")
+		await get_tree().change_scene_to_file("res://scenes/P2victory.tscn")
 		scene_root_str = "root/P2Victory/"
+	print("end func ret " + str(ret))
 	
-	await get_tree().process_frame
 	
-	var label1: Label = %Label1
-	var label2: Label = %Label2
-	
+	print("winnerPlayer_ID " + str(winner_playerID))
+	WinnerVariable.winner = winner_playerID
 	#while(label1 == null && label2 == null):
 	#	label1 = get_tree().root.get_node_or_null(scene_root_str + "Label1")
 	#	label2 = get_tree().root.get_node_or_null(scene_root_str + "Label2")
