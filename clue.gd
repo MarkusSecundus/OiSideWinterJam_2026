@@ -25,7 +25,7 @@ func _get_part_A(row: int, col: int) -> String:
 		elif col == 3:
 			return "Mr. Dog"
 		elif col == 4:
-			return "The Penguin"
+			return "Sir Porkinson"
 	elif row == 2:
 		if col == 1:
 			return "The Knife"
@@ -82,12 +82,12 @@ func clue_to_text() -> String:
 	elif clue.operation == 3: # if
 		text = str(
 			"If ", partA1, " is ", partB1, ", then ",
-			partA2, " is ", partB2, "."
+			partA2, " must be ", partB2, "."
 		)
 	elif clue.operation == 4: # iff
 		text = str(
-			"If and only if ", partA1, " is ", partB1, ", then ",
-			partA2, " must be ", partB2, "."
+			partA1, " is ", partB1, " if and only if ",
+			partA2, " is ", partB2, "."
 		)
 	else:
 		text = ""

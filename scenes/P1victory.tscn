@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c26rnnt8nok42"]
+
+[node name="P1Victory" type="Node2D" unique_id=30932961]
+
+[node name="Label1" type="Label" parent="." unique_id=1316927658]
+unique_name_in_owner = true
+offset_left = 485.0
+offset_top = 171.0
+offset_right = 678.0
+offset_bottom = 226.0
+text = "Player 1 win"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1806510301]
+unique_name_in_owner = true
+offset_left = 382.0
+offset_top = 295.0
+offset_right = 791.0
+offset_bottom = 402.0
+text = "Lorem ipsum2"
+horizontal_alignment = 1
+vertical_alignment = 1
