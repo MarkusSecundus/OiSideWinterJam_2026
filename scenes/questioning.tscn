@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbursxpwcdot3" path="res://textures/background.png" id="5_2yvh8"]
 [ext_resource type="Script" uid="uid://dv6n8tugj35mo" path="res://scripts/buttons.gd" id="5_4nfg0"]
 [ext_resource type="Script" uid="uid://die4mgsio518q" path="res://scenes/clues.gd" id="5_56l12"]
-[ext_resource type="FontFile" uid="uid://cd3e4ipgyqbjq" path="res://fonts/veteran typewriter.ttf" id="6_5wjhf"]
+[ext_resource type="FontFile" uid="uid://bkxx1ukjneiqi" path="res://fonts/veteran typewriter.ttf" id="6_5wjhf"]
 [ext_resource type="Script" uid="uid://c5ploq5lwifkg" path="res://scenes/game_button.gd" id="6_63jda"]
 [ext_resource type="Script" uid="uid://bqm3enp1nl76k" path="res://scripts/their_clues_list.gd" id="6_dkt2t"]
 [ext_resource type="Script" uid="uid://syodif456bop" path="res://scenes/my_clues_list.gd" id="6_sbg3v"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ca6o3fhu54on" path="res://textures/tiles/sus4.png" id="10_20oik"]
 [ext_resource type="Texture2D" uid="uid://d3psem4a3rmcx" path="res://textures/buttonBG.png" id="11_44ilb"]
 [ext_resource type="Texture2D" uid="uid://cwp2fqc1wftf1" path="res://textures/tiles/weapon1.png" id="11_ytrvr"]
-[ext_resource type="Texture2D" uid="uid://dl1cfnbfqg6kt" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
+[ext_resource type="Texture2D" uid="uid://cpeyaqdyiom3f" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
 [ext_resource type="Texture2D" uid="uid://2hpgyomcdyex" path="res://textures/tiles/weapon2.png" id="12_vubd6"]
 [ext_resource type="Script" uid="uid://d2xjhfmfxv1jw" path="res://scenes/grid_container.gd" id="13_5wjhf"]
 [ext_resource type="Texture2D" uid="uid://lnpb434h420j" path="res://textures/tiles/weapon3.png" id="13_sbg3v"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" uid="uid://c7e1hsnx727cy" path="res://scripts/trade_label.gd" id="28_2yvh8"]
 [ext_resource type="Script" uid="uid://dshcfmxkiq51p" path="res://scripts/no_more_questions_label.gd" id="32_5wjhf"]
 [ext_resource type="Script" uid="uid://bkrv3lm4lxc22" path="res://scenes/no_more_questions_rect.gd" id="32_6d7gx"]
+[ext_resource type="Script" uid="uid://63ig87fx3rkb" path="res://scripts/dialog_system/simple_actions/DialogActionPlaySoundtrack.gd" id="33_c8yi4"]
+[ext_resource type="Script" uid="uid://oftyspnf0fd3" path="res://scripts/dialog_system/DialogSystem.gd" id="35_2qjjb"]
 
 [sub_resource type="Theme" id="Theme_vvspa"]
 default_font = ExtResource("6_5wjhf")
@@ -1180,3 +1182,11 @@ text = "HALT!
 		You have to TRADE one CLUE before you can continue with your questioning!"
 horizontal_alignment = 1
 script = ExtResource("32_5wjhf")
+
+[node name="DialogSystem" type="Node" parent="." unique_id=131089593]
+script = ExtResource("35_2qjjb")
+run_on_start = true
+metadata/_custom_type_script = "uid://oftyspnf0fd3"
+
+[node name="PlayOST" type="Node" parent="DialogSystem" unique_id=430990418]
+script = ExtResource("33_c8yi4")
