@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cettiya2hyuvs" path="res://scripts/question_button.gd" id="9_20oik"]
 [ext_resource type="Texture2D" uid="uid://675rmauthepk" path="res://textures/tiles/sus3.png" id="9_lronu"]
 [ext_resource type="Texture2D" uid="uid://ca6o3fhu54on" path="res://textures/tiles/sus4.png" id="10_20oik"]
+[ext_resource type="Texture2D" uid="uid://d3psem4a3rmcx" path="res://textures/buttonBG.png" id="11_44ilb"]
 [ext_resource type="Texture2D" uid="uid://cwp2fqc1wftf1" path="res://textures/tiles/weapon1.png" id="11_ytrvr"]
 [ext_resource type="Texture2D" uid="uid://2hpgyomcdyex" path="res://textures/tiles/weapon2.png" id="12_vubd6"]
 [ext_resource type="Texture2D" uid="uid://lnpb434h420j" path="res://textures/tiles/weapon3.png" id="13_sbg3v"]
@@ -86,7 +87,6 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_2yvh8")
 
 [node name="Witness1Temp" type="Sprite2D" parent="." unique_id=337931168]
-visible = false
 position = Vector2(518, 281)
 scale = Vector2(0.109684825, 0.11103678)
 texture = ExtResource("2_2yvh8")
@@ -164,70 +164,128 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_4nfg0")
 
-[node name="SolveButton" type="Button" parent="UIElements/Buttons" unique_id=2041014957 node_paths=PackedStringArray("UIElement")]
+[node name="CluesButton" type="TextureButton" parent="UIElements/Buttons" unique_id=1132948814 node_paths=PackedStringArray("UIElement")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020000001
+anchor_top = 1.0
+anchor_right = 0.020000001
+anchor_bottom = 1.0
+offset_left = 16.919998
+offset_top = -119.0
+offset_right = 254.92
+offset_bottom = -26.0
+grow_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("11_44ilb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_63jda")
+UIElement = NodePath("../../Clues")
+
+[node name="Label" type="Label" parent="UIElements/Buttons/CluesButton" unique_id=1225910825]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Known clues"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionButton" type="TextureButton" parent="UIElements/Buttons" unique_id=143573835 node_paths=PackedStringArray("UIElement")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -253.0
+offset_top = -119.0
+offset_right = -15.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("11_44ilb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_63jda")
+UIElement = NodePath("../../Question")
+
+[node name="Label4" type="Label" parent="UIElements/Buttons/QuestionButton" unique_id=1926862685]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Question subordinate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TradeButton" type="TextureButton" parent="UIElements/Buttons" unique_id=1591020620 node_paths=PackedStringArray("UIElement")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -118.0
+offset_right = 272.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("11_44ilb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_63jda")
+UIElement = NodePath("../../Trade")
+
+[node name="Label3" type="Label" parent="UIElements/Buttons/TradeButton" unique_id=1008532348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Trade clues"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SolveButton" type="TextureButton" parent="UIElements/Buttons" unique_id=1412741731 node_paths=PackedStringArray("UIElement")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -238.0
-offset_top = -93.0
+offset_left = -253.0
+offset_top = -119.0
+offset_right = -15.0
+offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
 toggle_mode = true
-text = "Solve The Case"
+texture_normal = ExtResource("11_44ilb")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("6_63jda")
 UIElement = NodePath("../../Solve")
 
-[node name="TradeButton" type="Button" parent="UIElements/Buttons" unique_id=577234549 node_paths=PackedStringArray("UIElement")]
+[node name="Label2" type="Label" parent="UIElements/Buttons/SolveButton" unique_id=1522254897]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 46.0
-offset_top = -90.0
-offset_right = 284.0
-offset_bottom = 3.0
 grow_horizontal = 2
-grow_vertical = 0
-toggle_mode = true
-text = "Trade Information"
-script = ExtResource("6_63jda")
-UIElement = NodePath("../../Trade")
-
-[node name="CluesButton" type="Button" parent="UIElements/Buttons" unique_id=101280936 node_paths=PackedStringArray("UIElement")]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -91.0
-offset_right = 244.0
-grow_vertical = 0
-toggle_mode = true
-text = "Acquired Clues"
-script = ExtResource("6_63jda")
-UIElement = NodePath("../../Clues")
-
-[node name="QuestionButton" type="Button" parent="UIElements/Buttons" unique_id=1299556090 node_paths=PackedStringArray("UIElement")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -281.0
-offset_top = -90.0
-offset_right = -43.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 0
-toggle_mode = true
-text = "Question Subordinate"
-script = ExtResource("6_63jda")
-UIElement = NodePath("../../Question")
+grow_vertical = 2
+text = "Solve case"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DialogueBox" type="Label" parent="UIElements" unique_id=1425050916]
 layout_mode = 1

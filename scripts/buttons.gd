@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func toggle_off_all(except: Button) -> void:
+func toggle_off_all(except: TextureButton) -> void:
 	if except != TradeButton:
 		TradeButton.button_pressed = false
 	if except != CluesButton:
