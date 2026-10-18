@@ -87,10 +87,19 @@ text = "
 - you win if you solve the murder first, your opponent solves incorectly, or they lose all three lives"
 autowrap_mode = 2
 
-[node name="Label" type="Label" parent="menu/HBoxContainer" unique_id=1745979850]
+[node name="VBoxContainer2" type="VBoxContainer" parent="menu/HBoxContainer" unique_id=1121955972]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LoreTitle" type="Label" parent="menu/HBoxContainer/VBoxContainer2" unique_id=1745979850]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+text = "Lore"
+
+[node name="Label" type="Label" parent="menu/HBoxContainer/VBoxContainer2" unique_id=603967500]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1864053658]
 z_index = -1
