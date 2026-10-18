@@ -1,8 +1,8 @@
 extends TextureButton
 
-@onready var buttons = $"../../../Buttons"
-@onready var clues = $"../../../Clues"
-@onready var dialogue_box = $"../../../DialogueBox"
+@onready var buttons = $"../../../../Buttons"
+@onready var clues = $"../../../../Clues"
+@onready var dialogue_box = $"../../../../DialogueBox"
 @export var row: int
 @export var col: int
 
