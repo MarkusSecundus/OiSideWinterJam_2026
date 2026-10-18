@@ -22,6 +22,9 @@ var p2_clue_to_trade: Clue # clue that P2 is about to trade to P1
 var p1_clues_traded_flag: int = 0
 var p2_clues_traded_flag: int = 0
 
+var p1_questions_without_trading: int = 0
+var p2_questions_without_trading: int = 0
+
 var last_life_loss_reason = 0 # 0 - bullshit called out, 1 - false accusation
 
 @onready
@@ -38,6 +41,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+
+func player_can_question() -> bool:
+	if multiplayer.is_server():
+		return p1_questions_without_trading < 3
+	else:
+		return p2_questions_without_trading < 3
 
 func generate_sollution() -> void:
 	sollution_murderer = rng.randi_range(1, 4)
@@ -76,9 +85,11 @@ func generate_clue(row: int, col: int, playerID: int) -> Clue:
 	if playerID == 0:
 		p1_clues.push_back(clue)
 		p1_clues_flag += 1
+		p1_questions_without_trading += 1
 	else:
 		p2_clues.push_back(clue)
 		p2_clues_flag += 1
+		p2_questions_without_trading += 1
 	return clue
 
 func _evaluate_clue(clue: Clue) -> bool:
@@ -122,6 +133,8 @@ func add_clue_to_trade(r1: int, c1: int, r2: int, c2:int, op:int, playerID: int)
 	if p1_clue_to_trade != null && p2_clue_to_trade != null:
 		trade_clues()
 		%TradeButton.rpc("clear")
+		p1_questions_without_trading = 0
+		p2_questions_without_trading = 0
 
 # This function should be called with rpc_id(0) so that it gets called only once.
 @rpc("any_peer", "call_local", "reliable", 0)

@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _pressed() -> void:
-	disabled = true
-	modulate = Color(0.5, 0.5, 0.5, 0.9)
-	clues.generate_clue.rpc_id(0, row, col, 0 if multiplayer.is_server() else 1)
+	if clues.player_can_question():
+		disabled = true
+		modulate = Color(0.5, 0.5, 0.5, 0.9)
+		clues.generate_clue.rpc_id(0, row, col, 0 if multiplayer.is_server() else 1)

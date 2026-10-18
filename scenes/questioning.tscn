@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://d2xjhfmfxv1jw" path="res://scenes/grid_container.gd" id="13_5wjhf"]
 [ext_resource type="Texture2D" uid="uid://lnpb434h420j" path="res://textures/tiles/weapon3.png" id="13_sbg3v"]
 [ext_resource type="Texture2D" uid="uid://ce0y2w6ms1x28" path="res://textures/tiles/weapon4.png" id="14_dkt2t"]
+[ext_resource type="Script" uid="uid://cwnm2j6udsgnc" path="res://scripts/question_label.gd" id="15_c8yi4"]
 [ext_resource type="Script" uid="uid://haw02cxew3y5" path="res://scripts/solve_buttons.gd" id="21_20oik"]
 [ext_resource type="Script" uid="uid://dipjmttt235oq" path="res://scripts/solve_button.gd" id="22_ytrvr"]
 [ext_resource type="Script" uid="uid://hl11r5paf6yg" path="res://scenes/confirm_sollution_button.gd" id="23_ytrvr"]
@@ -31,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://dbbtnd8ercd06" path="res://textures/tiles/bg.png" id="25_va1hw"]
 [ext_resource type="Script" uid="uid://20j7b4x2724u" path="res://scenes/trade_button.gd" id="27_twe5i"]
 [ext_resource type="Script" uid="uid://c7e1hsnx727cy" path="res://scripts/trade_label.gd" id="28_2yvh8"]
+[ext_resource type="Script" uid="uid://dshcfmxkiq51p" path="res://scripts/no_more_questions_label.gd" id="32_5wjhf"]
+[ext_resource type="Script" uid="uid://bkrv3lm4lxc22" path="res://scenes/no_more_questions_rect.gd" id="32_6d7gx"]
 
 [sub_resource type="Theme" id="Theme_vvspa"]
 default_font = ExtResource("6_5wjhf")
@@ -84,6 +87,12 @@ properties/14/replication_mode = 1
 properties/15/path = NodePath(".:last_life_loss_reason")
 properties/15/spawn = true
 properties/15/replication_mode = 1
+properties/16/path = NodePath(".:p1_questions_without_trading")
+properties/16/spawn = true
+properties/16/replication_mode = 1
+properties/17/path = NodePath(".:p2_questions_without_trading")
+properties/17/spawn = true
+properties/17/replication_mode = 1
 
 [sub_resource type="Theme" id="Theme_quuje"]
 
@@ -368,6 +377,7 @@ offset_bottom = 70.0
 grow_horizontal = 2
 text = "I want to learn more about..."
 horizontal_alignment = 1
+script = ExtResource("15_c8yi4")
 
 [node name="ColorRect" type="ColorRect" parent="UIElements/Question" unique_id=1797795240]
 layout_mode = 1
@@ -978,7 +988,6 @@ End the Game!"
 script = ExtResource("23_ytrvr")
 
 [node name="Trade" type="Control" parent="UIElements" unique_id=1684694589]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1118,6 +1127,14 @@ vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("28_2yvh8")
 
+[node name="TradeExplanationLabel" type="Label" parent="UIElements/Trade/ColorRect" unique_id=1410863685]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 50.0
+offset_right = 641.0
+offset_bottom = 69.0
+text = "I'm going to tell my rival that..."
+
 [node name="Label" type="Label" parent="UIElements" unique_id=1599641708]
 layout_mode = 0
 offset_left = 23.0
@@ -1134,3 +1151,32 @@ offset_right = 95.0
 offset_bottom = 24.0
 text = "3"
 script = ExtResource("24_vubd6")
+
+[node name="NoMoreQuestionsRect" type="ColorRect" parent="UIElements" unique_id=98143941]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -438.0
+offset_top = -8.0
+offset_right = 434.0
+offset_bottom = 77.0
+grow_horizontal = 2
+color = Color(0.34117648, 0.29411766, 0.11372549, 0.5176471)
+script = ExtResource("32_6d7gx")
+
+[node name="NoMoreQuestionsLabel" type="Label" parent="UIElements/NoMoreQuestionsRect" unique_id=1305496193]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -432.0
+offset_top = 11.0
+offset_right = 436.0
+offset_bottom = 91.0
+grow_horizontal = 2
+text = "HALT!
+		The department has noticed that you arn't sharing enough information with your rival!
+		You have to TRADE one CLUE before you can continue with your questioning!"
+horizontal_alignment = 1
+script = ExtResource("32_5wjhf")
