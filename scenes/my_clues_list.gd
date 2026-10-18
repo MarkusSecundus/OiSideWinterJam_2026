@@ -1,7 +1,7 @@
 extends ItemList
 
-@onready var dialogue_box = $"../../../DialogueBox"
-@onready var clues = $"../.."
+@onready var dialogue_box = $"../../../../DialogueBox"
+@onready var clues = $"../../.."
 var last_flag = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

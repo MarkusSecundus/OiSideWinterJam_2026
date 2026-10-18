@@ -1,7 +1,7 @@
 extends Button
 
 @onready var clues_list: ItemList = $"../TheirCluesList"
-@onready var clues = $"../.."
+@onready var clues = $"../../.."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
