@@ -20,7 +20,9 @@ var p1_clue_to_trade: Clue # clue that P1 is about to trade to P2
 var p2_clue_to_trade: Clue # clue that P2 is about to trade to P1
 
 var p1_clues_traded_flag: int = 0
-var p2_clues_traded_flag: int = 0 
+var p2_clues_traded_flag: int = 0
+
+var last_life_loss_reason = 0 # 0 - bullshit called out, 1 - false accusation
 
 @onready
 var rng = RandomNumberGenerator.new()
@@ -49,7 +51,25 @@ func generate_sollution() -> void:
 func generate_clue(row: int, col: int, playerID: int) -> Clue:
 	var clue: Clue
 	while true:
-		clue = Clue.new(row, col, rng.randi_range(1, 3), rng.randi_range(1, 4), rng.randi_range(0, 4))
+		#clue = Clue.new(row, col, rng.randi_range(1, 3), rng.randi_range(1, 4), rng.randi_range(0, 4))
+		var op = rng.randi_range(0, 4)
+		
+		if op == 0 || op == 1: # is or not
+			clue = Clue.new(row, col, -1, -1, op)
+			
+		elif op == 2: # xor
+			var col2 = rng.randi_range(1, 3)
+			if col2 >= col:
+				col2 += 1
+			clue = Clue.new(row, col, row, col2, op)
+			
+		else: # op == 3 || op == 4 # if or iff
+			var row2 = rng.randi_range(1,2)
+			var col2 = rng.randi_range(1,4)
+			if row2 >= row:
+				row2 += 1
+			clue = Clue.new(row, col, row2, col2, op)
+		
 		if _evaluate_clue(clue) && (clue.col1 != clue.col2 || clue.row1 != clue.row2):
 			break # clue is valid, stop rerolling
 			
@@ -130,41 +150,84 @@ func call_bullshit(clueID: int, playerID: int) -> void:
 			p2_lives -= 1
 		else:
 			p1_lives -= 1
+		last_life_loss_reason = 0
 		clue.confirmation = 2 # confirmed bullshit
 	else:
 		if playerID == 0:
 			p1_lives -= 1
 		else:
 			p2_lives -= 1
+		last_life_loss_reason = 1
 		clue.confirmation = 1 # confirmed not bullshit
 		
 	if playerID == 0:
 		p1_clues_traded_flag += 1
 	else:
 		p2_clues_traded_flag += 1
+		
+	if p1_lives <= 0 || p2_lives <= 0:
+		var winner = 0 if p2_lives <= 0 else 1
+		if last_life_loss_reason == 0:
+			end_game.rpc(
+				winner,
+				"You lost your last life by being called out on your bullshit!",
+				"You calling out your rival's lies was the last straw!\nTheir reputation is in the mud!"
+			)
+		else:
+			end_game.rpc(
+				winner,
+				"You lost your last life by falsely accusing your rival of lying!",
+				"Your rival lost their last bit of reputation by falsely accusing you of lying!"
+			)
 
-# This function should be called with rpc() so that it gets called for all players.
+# This function should be called with rpc_id(0) so that it gets called only once.
 @rpc("any_peer", "call_local", "reliable", 0)
 func submit_sollution(m: int, w: int, l: int, playerID: int):
 	var winner: int
-	if sollution_murderer == m && sollution_weapon == w && sollution_location == l:
+	var sollution_is_correct = sollution_murderer == m && sollution_weapon == w && sollution_location == l
+	if sollution_is_correct:
 		winner = playerID
+		end_game.rpc(
+			winner,
+			"Your rival solved the murder case before you did!",
+			"You solved the murder case before the rival! Congratulations!"
+			)
 	else:
 		winner = 0 if playerID == 1 else 1
-	
-	var is_server = multiplayer.is_server()
-	
+		end_game.rpc(
+			winner,
+			"The sollution to the murder case that you presented was incorrect!",
+			"Your rival submitted a wrong sollution to the murder case...\nYou win by default!"
+			)
+
+
+# This function should be called with rpc() so that it gets called for all players.
+@rpc("any_peer", "call_local", "reliable", 0)		
+func end_game(winner_playerID: int, loser_msg: String, winner_msg: String):
 	var level = get_tree().root.get_node("Questioning")
 	level.visible = false
-	#level.call_deffered("free")
 	
-	if is_server:
-		if winner == 0:
-			get_tree().change_scene_to_file("res://scenes/victoryscreen_temp.tscn")
-		else:
-			get_tree().change_scene_to_file("res://scenes/gameoverscreen_temp.tscn")
+	var local_playerID = 0 if multiplayer.is_server() else 1
+	var scene_root_str = ""
+	if winner_playerID == 0:
+		get_tree().change_scene_to_file("res://scenes/P1victory.tscn")
+		scene_root_str = "root/P1Victory/"
 	else:
-		if winner == 1:
-			get_tree().change_scene_to_file("res://scenes/victoryscreen_temp.tscn")
-		else:
-			get_tree().change_scene_to_file("res://scenes/gameoverscreen_temp.tscn")
+		get_tree().change_scene_to_file("res://scenes/P2victory.tscn")
+		scene_root_str = "root/P2Victory/"
+	
+	await get_tree().process_frame
+	
+	var label1: Label = %Label1
+	var label2: Label = %Label2
+	
+	#while(label1 == null && label2 == null):
+	#	label1 = get_tree().root.get_node_or_null(scene_root_str + "Label1")
+	#	label2 = get_tree().root.get_node_or_null(scene_root_str + "Label2")
+	#	await get_tree().process_frame
+	#if local_playerID == winner_playerID:
+	#	label1.text = "YOU WIN!"
+	#	label2.text = winner_msg
+	#else:
+	#	label1.text = "YOU LOSE!"
+	#	label2.text = loser_msg

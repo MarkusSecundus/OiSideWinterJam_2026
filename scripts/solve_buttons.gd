@@ -31,7 +31,8 @@ func _process(delta: float) -> void:
 	pass
 	
 func confirm_sollution() -> void:
-	main_clues.submit_sollution.rpc(
+	main_clues.submit_sollution.rpc_id(
+		0,
 		rowA_pressed,
 		rowB_pressed,
 		rowC_pressed,

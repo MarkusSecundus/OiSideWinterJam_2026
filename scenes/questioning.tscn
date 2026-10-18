@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b41t3jfirsic7" path="res://textures/detective1.png" id="2_2yvh8"]
 [ext_resource type="Script" uid="uid://cvf6xqgqk0ipx" path="res://scripts/witness_1.gd" id="2_4nfg0"]
-[ext_resource type="Texture2D" uid="uid://d2safsfbvi6x8" path="res://textures/detective2.png" id="4_44ilb"]
+[ext_resource type="Texture2D" uid="uid://cxb2g5kcd1qce" path="res://textures/detective2.png" id="4_44ilb"]
 [ext_resource type="Script" uid="uid://i3eq3oyqndh7" path="res://scenes/witness_2.gd" id="4_bofo3"]
 [ext_resource type="Texture2D" uid="uid://bbursxpwcdot3" path="res://textures/background.png" id="5_2yvh8"]
 [ext_resource type="Script" uid="uid://dv6n8tugj35mo" path="res://scripts/buttons.gd" id="5_4nfg0"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ca6o3fhu54on" path="res://textures/tiles/sus4.png" id="10_20oik"]
 [ext_resource type="Texture2D" uid="uid://d3psem4a3rmcx" path="res://textures/buttonBG.png" id="11_44ilb"]
 [ext_resource type="Texture2D" uid="uid://cwp2fqc1wftf1" path="res://textures/tiles/weapon1.png" id="11_ytrvr"]
-[ext_resource type="Texture2D" uid="uid://dl1cfnbfqg6kt" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
+[ext_resource type="Texture2D" uid="uid://cpeyaqdyiom3f" path="res://textures/buttonBGseethrough.png" id="12_6d7gx"]
 [ext_resource type="Texture2D" uid="uid://2hpgyomcdyex" path="res://textures/tiles/weapon2.png" id="12_vubd6"]
 [ext_resource type="Script" uid="uid://d2xjhfmfxv1jw" path="res://scenes/grid_container.gd" id="13_5wjhf"]
 [ext_resource type="Texture2D" uid="uid://lnpb434h420j" path="res://textures/tiles/weapon3.png" id="13_sbg3v"]
@@ -81,6 +81,9 @@ properties/13/replication_mode = 1
 properties/14/path = NodePath(".:p2_clue_to_trade")
 properties/14/spawn = true
 properties/14/replication_mode = 1
+properties/15/path = NodePath(".:last_life_loss_reason")
+properties/15/spawn = true
+properties/15/replication_mode = 1
 
 [sub_resource type="Theme" id="Theme_quuje"]
 
