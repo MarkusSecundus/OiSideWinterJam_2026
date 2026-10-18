@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://nynevwffqjsf"]
 
+[ext_resource type="FontFile" uid="uid://bkxx1ukjneiqi" path="res://fonts/veteran typewriter.ttf" id="1_r2cab"]
+
+[sub_resource type="Theme" id="Theme_6d7gx"]
+default_font = ExtResource("1_r2cab")
+
 [node name="Node2D" type="Node2D" unique_id=1845462400]
 
 [node name="Label" type="Label" parent="." unique_id=1857494548]
@@ -7,4 +12,5 @@ offset_left = 518.0
 offset_top = 302.0
 offset_right = 594.0
 offset_bottom = 325.0
+theme = SubResource("Theme_6d7gx")
 text = "you win :)"

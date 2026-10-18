@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbursxpwcdot3" path="res://textures/background.png" id="5_2yvh8"]
 [ext_resource type="Script" uid="uid://dv6n8tugj35mo" path="res://scripts/buttons.gd" id="5_4nfg0"]
 [ext_resource type="Script" uid="uid://die4mgsio518q" path="res://scenes/clues.gd" id="5_56l12"]
+[ext_resource type="FontFile" uid="uid://bkxx1ukjneiqi" path="res://fonts/veteran typewriter.ttf" id="6_5wjhf"]
 [ext_resource type="Script" uid="uid://c5ploq5lwifkg" path="res://scenes/game_button.gd" id="6_63jda"]
 [ext_resource type="Script" uid="uid://bqm3enp1nl76k" path="res://scripts/their_clues_list.gd" id="6_dkt2t"]
 [ext_resource type="Script" uid="uid://syodif456bop" path="res://scenes/my_clues_list.gd" id="6_sbg3v"]
@@ -31,6 +32,9 @@
 [ext_resource type="Script" uid="uid://c3w84f745tm2i" path="res://scenes/lives_num.gd" id="24_vubd6"]
 [ext_resource type="Script" uid="uid://20j7b4x2724u" path="res://scenes/trade_button.gd" id="27_twe5i"]
 [ext_resource type="Script" uid="uid://c7e1hsnx727cy" path="res://scripts/trade_label.gd" id="28_2yvh8"]
+
+[sub_resource type="Theme" id="Theme_vvspa"]
+default_font = ExtResource("6_5wjhf")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_56l12"]
 properties/0/path = NodePath(".:sollution_murderer")
@@ -105,6 +109,7 @@ offset_left = -20.0
 offset_top = 5.0
 offset_right = 1134.0
 offset_bottom = 651.0
+theme = SubResource("Theme_vvspa")
 
 [node name="Clues" type="Control" parent="UIElements" unique_id=823502957]
 visible = false
