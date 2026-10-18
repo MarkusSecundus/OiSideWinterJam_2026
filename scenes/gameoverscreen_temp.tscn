@@ -1,16 +1,95 @@
 [gd_scene format=3 uid="uid://dimxlnbqsvrjb"]
 
+[ext_resource type="Texture2D" uid="uid://b41t3jfirsic7" path="res://textures/detective1.png" id="1_1yv14"]
 [ext_resource type="FontFile" uid="uid://bkxx1ukjneiqi" path="res://fonts/veteran typewriter.ttf" id="1_rtv31"]
+[ext_resource type="Texture2D" uid="uid://c3huyjsxb6v8n" path="res://textures/tiles/teardrop.png" id="2_g07b3"]
+[ext_resource type="Texture2D" uid="uid://d2safsfbvi6x8" path="res://textures/detective2.png" id="3_tfiyw"]
+
+[sub_resource type="Gradient" id="Gradient_tfiyw"]
+offsets = PackedFloat32Array(0, 0.1375839)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tfiyw"]
+gradient = SubResource("Gradient_tfiyw")
+
+[sub_resource type="Curve" id="Curve_e1n4l"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13636366, 0.9308176), 0.19712241, 0.19712241, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_e1n4l"]
+curve = SubResource("Curve_e1n4l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yoiic"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(120, 40, 1)
+angle_min = -12.199989
+angle_max = 11.0000105
+gravity = Vector3(0, 98, 0)
+scale_min = 0.07
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_e1n4l")
+color_ramp = SubResource("GradientTexture1D_tfiyw")
 
 [sub_resource type="Theme" id="Theme_bdcg4"]
 default_font = ExtResource("1_rtv31")
 
 [node name="Node2D" type="Node2D" unique_id=1700917079]
 
-[node name="Label" type="Label" parent="." unique_id=823160336]
-offset_left = 495.0
-offset_top = 308.0
-offset_right = 574.0
-offset_bottom = 331.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1023517875]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=167629700]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -195.0
+offset_right = 835.0
+offset_bottom = 459.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Detective1" type="Sprite2D" parent="CanvasLayer" unique_id=478739242]
+visible = false
+position = Vector2(617, 510)
+scale = Vector2(0.25439453, 0.25439453)
+texture = ExtResource("1_1yv14")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/Detective1" unique_id=2033082323]
+position = Vector2(31.447216, -829.42035)
+texture = ExtResource("2_g07b3")
+lifetime = 4.43
+process_material = SubResource("ParticleProcessMaterial_yoiic")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="CanvasLayer/Detective1" unique_id=418445390]
+position = Vector2(-444.19193, -809.7658)
+texture = ExtResource("2_g07b3")
+lifetime = 4.43
+process_material = SubResource("ParticleProcessMaterial_yoiic")
+
+[node name="Detective2" type="Sprite2D" parent="CanvasLayer" unique_id=1282281760]
+position = Vector2(617, 510)
+scale = Vector2(0.25439453, 0.25439453)
+texture = ExtResource("3_tfiyw")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer/Detective2" unique_id=1376045343]
+position = Vector2(-11.792706, -1029.8964)
+texture = ExtResource("2_g07b3")
+lifetime = 4.43
+process_material = SubResource("ParticleProcessMaterial_yoiic")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="CanvasLayer/Detective2" unique_id=1359789572]
+position = Vector2(-397.0211, -1018.10364)
+texture = ExtResource("2_g07b3")
+lifetime = 4.43
+process_material = SubResource("ParticleProcessMaterial_yoiic")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=823160336]
+offset_left = 374.0
+offset_top = 516.0
+offset_right = 750.0
+offset_bottom = 608.8125
 theme = SubResource("Theme_bdcg4")
+theme_override_font_sizes/font_size = 81
 text = "You lose :("
