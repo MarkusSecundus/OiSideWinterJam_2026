@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dimxlnbqsvrjb"]
+
+[node name="Node2D" type="Node2D" unique_id=1700917079]
+
+[node name="Label" type="Label" parent="." unique_id=823160336]
+offset_left = 495.0
+offset_top = 308.0
+offset_right = 574.0
+offset_bottom = 331.0
+text = "You lose :("

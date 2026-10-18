@@ -3,6 +3,7 @@ extends Node
 const port = 12357
 
 var peer = ENetMultiplayerPeer.new()
+@onready var menu = $"../menu"
 
 func _ready() -> void:
 	
@@ -12,6 +13,7 @@ func _ready() -> void:
 			var root = get_tree().root
 			var child: PackedScene = load("res://scenes/questioning.tscn")
 			root.add_child(child.instantiate())
+			menu.visible = false
 	)
 	multiplayer.connection_failed.connect(
 		func():
