@@ -48,6 +48,6 @@ func _pressed() -> void:
 
 @rpc("any_peer", "call_local", "reliable", 0) 
 func clear():
-	Operator.clear()
-	PartA.clear()
-	PartB.clear()
+	Operator.select(-1)
+	PartA.select(-1)
+	PartB.select(-1)
