@@ -222,6 +222,8 @@ func end_game(winner_playerID: int, loser_msg: String, winner_msg: String):
 	
 	print("winnerPlayer_ID " + str(winner_playerID))
 	WinnerVariable.winner = winner_playerID
+	WinnerVariable.winner_message = winner_msg
+	WinnerVariable.loser_message = loser_msg
 	#while(label1 == null && label2 == null):
 	#	label1 = get_tree().root.get_node_or_null(scene_root_str + "Label1")
 	#	label2 = get_tree().root.get_node_or_null(scene_root_str + "Label2")

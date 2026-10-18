@@ -15,5 +15,7 @@ func _ready() -> void:
 		$CanvasLayer/Label.text = "You win!"
 		(myDetective as Node).find_child("GPUParticles2D").hide()
 		(myDetective as Node).find_child("GPUParticles2D2").hide()
-	
+		$CanvasLayer/reason.text = WinnerVariable.winner_message
+	else:
+		$CanvasLayer/reason.text = WinnerVariable.loser_message
 	
