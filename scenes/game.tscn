@@ -49,4 +49,5 @@ script = ExtResource("4_u5sy4")
 [node name="LineEdit" type="LineEdit" parent="menu/VBoxContainer/HBoxContainer" unique_id=1334244876]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "127.0.0.1"
 placeholder_text = "serverIpHere"

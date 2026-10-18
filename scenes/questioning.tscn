@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ccvs6y8q7e8f4"]
 
-[ext_resource type="Texture2D" uid="uid://bau6tt3kjhucl" path="res://textures/witness1_temp.png" id="1_ay40d"]
+[ext_resource type="Texture2D" uid="uid://b41t3jfirsic7" path="res://textures/detective1.png" id="2_2yvh8"]
 [ext_resource type="Script" uid="uid://cvf6xqgqk0ipx" path="res://scripts/witness_1.gd" id="2_4nfg0"]
-[ext_resource type="Texture2D" uid="uid://tt7ej0vcfutc" path="res://textures/witness2_temp.png" id="3_7urk2"]
+[ext_resource type="Texture2D" uid="uid://d2safsfbvi6x8" path="res://textures/detective2.png" id="4_44ilb"]
 [ext_resource type="Script" uid="uid://i3eq3oyqndh7" path="res://scenes/witness_2.gd" id="4_bofo3"]
+[ext_resource type="Texture2D" uid="uid://bbursxpwcdot3" path="res://textures/background.png" id="5_2yvh8"]
 [ext_resource type="Script" uid="uid://dv6n8tugj35mo" path="res://scripts/buttons.gd" id="5_4nfg0"]
 [ext_resource type="Script" uid="uid://die4mgsio518q" path="res://scenes/clues.gd" id="5_56l12"]
 [ext_resource type="Script" uid="uid://c5ploq5lwifkg" path="res://scenes/game_button.gd" id="6_63jda"]
@@ -79,23 +80,31 @@ properties/14/replication_mode = 1
 
 [node name="Questioning" type="Node2D" unique_id=221828119]
 
+[node name="background" type="Sprite2D" parent="." unique_id=1795104901]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_2yvh8")
+
 [node name="Witness1Temp" type="Sprite2D" parent="." unique_id=337931168]
-position = Vector2(576, 286.99997)
-scale = Vector2(0.5741646, 0.6139647)
-texture = ExtResource("1_ay40d")
+visible = false
+position = Vector2(518, 281)
+scale = Vector2(0.109684825, 0.11103678)
+texture = ExtResource("2_2yvh8")
 script = ExtResource("2_4nfg0")
 
 [node name="Witness2Temp" type="Sprite2D" parent="." unique_id=1281154574]
-position = Vector2(574.875, 286.125)
-scale = Vector2(0.57396084, 0.6191814)
-texture = ExtResource("3_7urk2")
+position = Vector2(507, 280)
+scale = Vector2(0.099, 0.099)
+texture = ExtResource("4_44ilb")
 script = ExtResource("4_bofo3")
 
 [node name="UIElements" type="Control" parent="." unique_id=845122444]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1154.0
-offset_bottom = 646.0
+offset_left = -20.0
+offset_top = 5.0
+offset_right = 1134.0
+offset_bottom = 651.0
 
 [node name="Clues" type="Control" parent="UIElements" unique_id=823502957]
 visible = false
