@@ -212,10 +212,10 @@ func end_game(winner_playerID: int, loser_msg: String, winner_msg: String):
 	
 	var ret
 	if winner_playerID == 0:
-		await get_tree().change_scene_to_file("res://scenes/P1victory.tscn")
+		await get_tree().change_scene_to_file("res://scenes/gameoverscreen_temp.tscn")
 		scene_root_str = "root/P1Victory/"
 	else:
-		await get_tree().change_scene_to_file("res://scenes/P2victory.tscn")
+		await get_tree().change_scene_to_file("res://scenes/gameoverscreen_temp.tscn")
 		scene_root_str = "root/P2Victory/"
 	print("end func ret " + str(ret))
 	
