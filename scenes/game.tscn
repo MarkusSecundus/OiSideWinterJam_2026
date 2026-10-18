@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dhut3nxhd3a2i" path="res://scripts/conection_manager.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://b1pv5lknlf818" path="res://scripts/ip_label.gd" id="2_iywne"]
+[ext_resource type="FontFile" uid="uid://cd3e4ipgyqbjq" path="res://fonts/veteran typewriter.ttf" id="2_p57ef"]
 [ext_resource type="Script" uid="uid://xykemv5y45xj" path="res://scripts/button.gd" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://bsqtncrtq8fhy" path="res://scripts/join_button.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://3sfjpqeljcsu" path="res://textures/introBackground.png" id="5_iywne"]
+
+[sub_resource type="Theme" id="Theme_si73h"]
+default_font = ExtResource("2_p57ef")
 
 [node name="MainGameScene" type="Node" unique_id=80907388]
 
@@ -19,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_si73h")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="menu" unique_id=361146669]
 layout_mode = 1
@@ -100,6 +105,8 @@ text = "Lore"
 [node name="Label" type="Label" parent="menu/HBoxContainer/VBoxContainer2" unique_id=603967500]
 layout_mode = 2
 size_flags_vertical = 3
+text = "The veteran investigator is retiring and there's only two options for his succesor. You and your rival are dealing with scattered reports from the local police. Whoever closes this case will surely be appointed. Provided they do not break the old man's trust."
+autowrap_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1864053658]
 z_index = -1
