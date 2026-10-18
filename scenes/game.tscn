@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b1pv5lknlf818" path="res://scripts/ip_label.gd" id="2_iywne"]
 [ext_resource type="Script" uid="uid://xykemv5y45xj" path="res://scripts/button.gd" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://bsqtncrtq8fhy" path="res://scripts/join_button.gd" id="4_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://3sfjpqeljcsu" path="res://textures/introBackground.png" id="5_iywne"]
 
 [node name="MainGameScene" type="Node" unique_id=80907388]
 
@@ -19,35 +20,85 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="menu" unique_id=837510627]
-layout_mode = 0
-offset_right = 398.0
-offset_bottom = 120.0
+[node name="HBoxContainer" type="HBoxContainer" parent="menu" unique_id=361146669]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = 90.0
+offset_right = -160.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(160, 90)
 
-[node name="Label" type="Label" parent="menu/VBoxContainer" unique_id=146922787]
+[node name="VBoxContainer" type="VBoxContainer" parent="menu/HBoxContainer" unique_id=837510627]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="menu/HBoxContainer/VBoxContainer" unique_id=146922787]
 layout_mode = 2
 text = "your Ip:"
 
-[node name="IpLabel" type="Label" parent="menu/VBoxContainer" unique_id=1721995324]
+[node name="IpLabel" type="Label" parent="menu/HBoxContainer/VBoxContainer" unique_id=1721995324]
 layout_mode = 2
 script = ExtResource("2_iywne")
 
-[node name="HostButton" type="Button" parent="menu/VBoxContainer" unique_id=455464724]
+[node name="HostButton" type="Button" parent="menu/HBoxContainer/VBoxContainer" unique_id=455464724]
 layout_mode = 2
 text = "Host
 "
 script = ExtResource("3_p57ef")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="menu/VBoxContainer" unique_id=335345455]
+[node name="HBoxContainer" type="HBoxContainer" parent="menu/HBoxContainer/VBoxContainer" unique_id=335345455]
 layout_mode = 2
 
-[node name="JoinButton" type="Button" parent="menu/VBoxContainer/HBoxContainer" unique_id=509313689]
+[node name="JoinButton" type="Button" parent="menu/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=509313689]
 layout_mode = 2
 text = "Join "
 script = ExtResource("4_u5sy4")
 
-[node name="LineEdit" type="LineEdit" parent="menu/VBoxContainer/HBoxContainer" unique_id=1334244876]
+[node name="LineEdit" type="LineEdit" parent="menu/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1334244876]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "127.0.0.1"
 placeholder_text = "serverIpHere"
+
+[node name="titlerules" type="Label" parent="menu/HBoxContainer/VBoxContainer" unique_id=2131450687]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Rules"
+
+[node name="rules" type="Label" parent="menu/HBoxContainer/VBoxContainer" unique_id=2070874547]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "
+- ask your subordinate for clues
+
+- you can get up to three clues before trading knowledge with your partner
+
+- you can lie to each other
+
+- you can call-out a clue from your rival; if it was a lie they lose a life, if it wasn't, you do
+
+- you win if you solve the murder first, your opponent solves incorectly, or they lose all three lives"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="menu/HBoxContainer" unique_id=1745979850]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1864053658]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_iywne")
+expand_mode = 2
